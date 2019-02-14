@@ -4,8 +4,6 @@
 
 ## Requirements
 
-- [svgexport](https://github.com/shakiba/svgexport)
-  - `npm install -g svgexport`
 - ImageMagick (`convert`)
 
 ## Installlation

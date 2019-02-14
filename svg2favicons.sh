@@ -26,12 +26,14 @@ main() {
     mkdir -p "$dir"
   fi
 
-  svgexport "$svg" "$dir/favicon-16x16.png"               16:
-  svgexport "$svg" "$dir/favicon-32x32.png"               32:
-  svgexport "$svg" "$dir/msapplication-icon-144x144.png" 144:
-  svgexport "$svg" "$dir/apple-touch-icon-152x152.png"   152: "svg { background: white; }"
-  svgexport "$svg" "$dir/android-chrome-192x192.png"     192:
-  svgexport "$svg" "$dir/android-chrome-512x512.png"     512:
+  echo "Generate favicons in $dir..."
+
+  convert -resize  16x -background  none "$svg" "$dir/favicon-16x16.png"
+  convert -resize  32x -background  none "$svg" "$dir/favicon-32x32.png"
+  convert -resize 144x -background  none "$svg" "$dir/msapplication-icon-144x144.png"
+  convert -resize 152x -background white "$svg" "$dir/apple-touch-icon-152x152.png"
+  convert -resize 192x -background  none "$svg" "$dir/android-chrome-192x192.png"
+  convert -resize 512x -background  none "$svg" "$dir/android-chrome-512x512.png"
 
   convert "$dir/favicon-16x16.png" "$dir/favicon-32x32.png" "$dir/favicon.ico"
 }
